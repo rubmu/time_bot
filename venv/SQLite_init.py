@@ -18,7 +18,7 @@ class SQL:
                        """)
         cursor.execute("""CREATE TABLE IF NOT EXISTS employees
                                   (id integer PRIMARY KEY, company_id integer, password text,
-                                   name text)
+                                   name text, chat_id text, position text)
                                """)
         cursor.execute("""CREATE TABLE IF NOT EXISTS time_count
                                   (id integer PRIMARY KEY, id_employee integer, salary float,
@@ -39,7 +39,7 @@ class SQL:
         cursor = conn.cursor()
         cursor.execute(text)
         conn.commit()
-        print(cursor.fetchall())
+        return cursor.fetchall()
 
 
 
